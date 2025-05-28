@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我们的纪念日</title>
+    <link rel="stylesheet" href="ourmemory/style.css">
+</head>
+<body>
+    <header>
+        <h1>我们的特别纪念日</h1>
+    </header>
+
+    <main>
+        <section id="countdown">
+            <h2>距离下一个纪念日还有：</h2>
+            <div id="timer">
+                <span id="days">00</span> 天 
+                <span id="hours">00</span> 时 
+                <span id="minutes">00</span> 分 
+                <span id="seconds">00</span> 秒
+            </div>
+        </section>
+
+        <section id="gallery">
+            <h2>珍贵回忆</h2>
+            
+            <div>
+                <input type="file" id="photoUpload" accept="image/*" style="margin-bottom: 15px;">
+            </div>
+
+            <div class="photo-grid" id="photoGrid">
+                <!-- 在这里添加您的照片 -->
+                <!-- 示例:
+                <div class="photo-item">
+                    <img src="your-photo1.jpg" alt="回忆照片1">
+                    <p>照片描述1</p>
+                </div>
+                -->
+                <p>将您的照片放在项目文件夹中，并在这里添加 img 标签来展示它们，或者使用上方的按钮选择本地照片进行预览。</p>
+            </div>
+        </section>
+
+        <section id="story">
+            <h2>我们的故事</h2>
+            <p>这里可以写下你们的爱情故事或者重要时刻。</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>永远爱你 ❤️</p>
+    </footer>
+
+    <script src="/ourmemory/script.js"></script>
+</body>
+</html>
