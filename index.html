@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>我们的纪念日</title>
-    <link rel="stylesheet" href="ourmemory/style.css">
+    <link rel="stylesheet" href="/ourmemory/style.css">
 </head>
 <body>
     <header>
@@ -25,25 +25,26 @@
         <section id="gallery">
             <h2>珍贵回忆</h2>
             
-            <div>
+            <!-- 移除了以下这行 -->
+            <!-- <div>
                 <input type="file" id="photoUpload" accept="image/*" style="margin-bottom: 15px;">
-            </div>
+            </div> -->
 
             <div class="photo-grid" id="photoGrid">
                 <!-- 在这里添加您的照片 -->
-                <!-- 示例:
+                <!-- 示例 (请注意修正图片路径和添加文件扩展名): -->
                 <div class="photo-item">
-                    <img src="your-photo1.jpg" alt="回忆照片1">
-                    <p>照片描述1</p>
+                    <img src="/ourmemory/liuxiaoxi.jpg" alt="新年">  <!-- 假设 liuxiaoxi 是 liuxiaoxi.jpg 且在根目录 -->
+                    <p> </p>
                 </div>
-                -->
-                <p>将您的照片放在项目文件夹中，并在这里添加 img 标签来展示它们，或者使用上方的按钮选择本地照片进行预览。</p>
+                <!-- 如果您没有手动添加图片，可以保留或修改这里的提示文字 -->
+                
             </div>
         </section>
 
         <section id="story">
             <h2>我们的故事</h2>
-            <p>这里可以写下你们的爱情故事或者重要时刻。</p>
+            <p>2025年4月22日，表白成功。</p>
         </section>
     </main>
 
@@ -52,5 +53,7 @@
     </footer>
 
     <script src="/ourmemory/script.js"></script>
+    <!-- 同样，请确认 script.js 的路径 -->
+    <script src="script.js"></script> 
 </body>
 </html>
