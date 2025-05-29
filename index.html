@@ -4,231 +4,67 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>我们的纪念日</title>
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #fce4ec; /* 淡粉色背景，营造浪漫氛围 */
-            color: #333;
-            margin: 0;
-            padding: 20px;
-            text-align: center; /* 所有文字居中 */
-        }
-        header {
-            padding: 20px;
-            background-color: #f8bbd0; /* 稍深一点的粉色 */
-            border-radius: 10px;
-            margin-bottom: 30px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        }
-        header h1 {
-            margin: 0;
-            color: #c2185b; /* 浪漫的深粉红色 */
-            font-size: 2.5em;
-        }
-        header p {
-            font-size: 1.2em;
-            color: #ad1457;
-        }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        .section {
-            background-color: #fff;
-            padding: 20px;
-            margin-bottom: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-        }
-        .section h2 {
-            color: #c2185b;
-            border-bottom: 2px solid #f8bbd0;
-            padding-bottom: 10px;
-            margin-top: 0;
-        }
-        .gallery img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 5px;
-            margin-bottom: 10px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-        .messages .message {
-            background-color: #fce4ec;
-            padding: 10px;
-            border-radius: 5px;
-            margin-bottom: 10px;
-            text-align: left;
-            border-left: 5px solid #f8bbd0;
-        }
-        .form-container input[type="text"],
-        .form-container textarea {
-            width: calc(100% - 22px); /* 考虑padding和border */
-            padding: 10px;
-            margin-bottom: 10px;
-            border: 1px solid #f8bbd0;
-            border-radius: 5px;
-            box-sizing: border-box;
-        }
-        .form-container button {
-            background-color: #c2185b;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 1em;
-        }
-        .form-container button:hover {
-            background-color: #ad1457;
-        }
-        /* 简单的花瓣装饰 */
-        body::before, body::after {
-            content: '🌸';
-            position: fixed;
-            font-size: 50px;
-            opacity: 0.3;
-            z-index: -1;
-        }
-        body::before {
-            top: 10%;
-            left: 5%;
-            transform: rotate(-15deg);
-        }
-        body::after {
-            bottom: 10%;
-            right: 5%;
-            transform: rotate(15deg);
-        }
-        /* 更多装饰可以根据喜好添加 */
-    </style>
+    <link rel="stylesheet" href="/ourmemory/style.css">
+    <!-- 添加 date-chinese 农历库 CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/date-chinese@2.1.4/build/date-chinese.min.js"></script>
 </head>
 <body>
     <header>
         <h1>我们的特别日子</h1>
-        <p>💖 4月22日 💖</p>
+        <section id="countdown-section">
+            <h2>距离下一个纪念日还有：</h2>
+            <div id="countdown" class="countdown"> <!-- 确保这里有 class="countdown" -->
+                <div class="timer-box"><span id="days">00</span>天</div>
+                <div class="timer-box"><span id="hours">00</span>时</div>
+                <div class="timer-box"><span id="minutes">00</span>分</div>
+                <div class="timer-box"><span id="seconds">00</span>秒</div>
+            </div>
+        </section>
     </header>
 
-    <div class="container">
-        <div class="section gallery-section">
-            <h2>甜蜜瞬间</h2>
-            <div id="gallery" class="gallery">
-                <img src="/ourmemory/liuxiaoxi.jpg" alt="纪念日图片">
-                
-                <p>还没有图片哦，快来添加吧！</p>
-            </div>
-            <div class="form-container">
-                <h3>添加新图片</h3>
-                <input type="text" id="imageUrl" placeholder="输入图片链接 (URL)">
-                <button onclick="addImage()">添加图片</button>
-            </div>
-        </div>
+    <main>
+        <!-- countdown-section 已移至 header -->
 
-        <div class="section messages-section">
-            <h2>留言</h2>
-            <div id="messages" class="messages">
-                <!-- 留言会在这里动态添加 -->
-                <p>还没有留言哦，快来写下你的心声！</p>
+        <section id="birthday-section">
+            <h2>特别的生日</h2>
+            <div class="birthday-countdown-container">
+                <h3>刘小溪的生日 (6月8日) 还有：</h3>
+                <div id="birthday1-countdown" class="countdown">
+                    <div class="timer-box"><span id="b1-days">00</span>天</div>
+                    <div class="timer-box"><span id="b1-hours">00</span>时</div>
+                    <div class="timer-box"><span id="b1-minutes">00</span>分</div>
+                    <div class="timer-box"><span id="b1-seconds">00</span>秒</div>
+                </div>
             </div>
-            <div class="form-container">
-                <h3>写下留言</h3>
-                <textarea id="messageText" rows="4" placeholder="在此输入你的留言"></textarea>
-                <button onclick="addMessage()">提交留言</button>
+            <div class="birthday-countdown-container">
+                <h3>王简的生日 (4月7日) 还有：</h3>
+                <div id="birthday2-countdown" class="countdown">
+                    <div class="timer-box"><span id="b2-days">00</span>天</div>
+                    <div class="timer-box"><span id="b2-hours">00</span>时</div>
+                    <div class="timer-box"><span id="b2-minutes">00</span>分</div>
+                    <div class="timer-box"><span id="b2-seconds">00</span>秒</div>
+                </div>
             </div>
-        </div>
+        </section>
+
+        <!-- <section id="gallery-section">
+            <h2>珍贵瞬间</h2>
+            <div class="gallery">
+                图片稍后通过JavaScript添加，或者您可以直接在这里添加img标签
+                示例: <img src="path/to/your/image1.jpg" alt="回忆一">
+            </div>
+        </section> -->
+    </main>
+
+    <div id="chinese-new-year-message" style="display: none; text-align: center; margin-top: 20px;">
+        <h2>新年快乐！🧧🧨</h2>
     </div>
+    <div id="fireworks-container"></div>
 
-    <script>
-        // 页面加载时从localStorage加载数据
-        window.onload = function() {
-            loadImages();
-            loadMessages();
-        };
+    <footer>
+        <p>永远爱你 ❤️</p>
+    </footer>
 
-        function addImage() {
-            const imageUrl = document.getElementById('imageUrl').value;
-            if (imageUrl.trim() === '') {
-                alert('请输入图片链接！');
-                return;
-            }
-
-            const gallery = document.getElementById('gallery');
-            // 如果是第一张图片，移除提示信息
-            if (gallery.querySelector('p')) {
-                gallery.innerHTML = '';
-            }
-
-            const imgElement = document.createElement('img');
-            imgElement.src = imageUrl;
-            imgElement.alt = '纪念日图片';
-            gallery.appendChild(imgElement);
-
-            saveImage(imageUrl);
-            document.getElementById('imageUrl').value = ''; // 清空输入框
-        }
-
-        function addMessage() {
-            const messageText = document.getElementById('messageText').value;
-            if (messageText.trim() === '') {
-                alert('请输入留言内容！');
-                return;
-            }
-
-            const messagesDiv = document.getElementById('messages');
-            // 如果是第一条留言，移除提示信息
-            if (messagesDiv.querySelector('p')) {
-                messagesDiv.innerHTML = '';
-            }
-
-            const messageElement = document.createElement('div');
-            messageElement.classList.add('message');
-            messageElement.textContent = messageText;
-            messagesDiv.appendChild(messageElement);
-
-            saveMessage(messageText);
-            document.getElementById('messageText').value = ''; // 清空输入框
-        }
-
-        // --- localStorage 持久化功能 ---
-        function saveImage(imageUrl) {
-            let images = JSON.parse(localStorage.getItem('anniversaryImages')) || [];
-            images.push(imageUrl);
-            localStorage.setItem('anniversaryImages', JSON.stringify(images));
-        }
-
-        function loadImages() {
-            let images = JSON.parse(localStorage.getItem('anniversaryImages')) || [];
-            const gallery = document.getElementById('gallery');
-            if (images.length > 0) {
-                gallery.innerHTML = ''; // 清空可能存在的提示信息
-                images.forEach(url => {
-                    const imgElement = document.createElement('img');
-                    imgElement.src = url;
-                    imgElement.alt = '纪念日图片';
-                    gallery.appendChild(imgElement);
-                });
-            } 
-        }
-
-        function saveMessage(messageText) {
-            let messages = JSON.parse(localStorage.getItem('anniversaryMessages')) || [];
-            messages.push(messageText);
-            localStorage.setItem('anniversaryMessages', JSON.stringify(messages));
-        }
-
-        function loadMessages() {
-            let messages = JSON.parse(localStorage.getItem('anniversaryMessages')) || [];
-            const messagesDiv = document.getElementById('messages');
-            if (messages.length > 0) {
-                messagesDiv.innerHTML = ''; // 清空可能存在的提示信息
-                messages.forEach(text => {
-                    const messageElement = document.createElement('div');
-                    messageElement.classList.add('message');
-                    messageElement.textContent = text;
-                    messagesDiv.appendChild(messageElement);
-                });
-            }
-        }
-    </script>
+    <script src="/ourmemory/script.js"></script>
 </body>
 </html>
